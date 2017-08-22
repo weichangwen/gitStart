@@ -1,0 +1,5 @@
+js中几种实用的跨域方法原理详解:http://www.cnblogs.com/2050/p/3191744.html
+
+http://edu.51cto.com/center/course/lesson/index?id=19275
+
+http://study.163.com/course/courseMain.htm?courseId=1003384004

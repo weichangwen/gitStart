@@ -13,22 +13,28 @@ window.onload = function(){
 
         //4.准备发送请求的数据url
        var url = this.href;
-       var method = "GET";
+       //var method = "GET";
+       var method = "POST";
 
         //5.调用XMLHTTPRequest对象 的open方法
        request.open(method, url);
 
+       request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
         //6.调用XMLHTTPRequest对象 的send方法
-       request.send(null);
+       request.send("name='atguigu'");
 
         //7.为XMLHTTPRequest对象添加onreadystatechange响应函数
-
-        //8.判断响应是否完成，XMLHTTPRequest对象对象的readstate 值为4的时候
-
-        //9.再判断响应是否可用XMLHTTPRequest对象 属性status 值为200
-
-        //10.打印响应结果 responseText
-
+        request.onreadystatechange = function(){
+            //8.判断响应是否完成，XMLHTTPRequest对象对象的readstate 值为4的时候
+            if(request.readyState == 4){
+                //9.再判断响应是否可用XMLHTTPRequest对象 属性status 值为200
+                if(request.status==200 ||request.status==304){
+                    //10.打印响应结果 responseText
+                    alert(request.responseText);
+                }
+            }
+        };
 
         //2.取消a接点的默认行为
         return false;
@@ -39,6 +45,5 @@ window.onload = function(){
 
 <body>
 <a href="test.txt">hello ajax!</a>
-
 </body>
 </html>
