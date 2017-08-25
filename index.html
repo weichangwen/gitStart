@@ -3,59 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>测试页面</title>
+<script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
-window.onload = function(){
-    var aNode = document.getElementsByTagName("a");
-    for(var i = 0;i < aNode.length;i++){
-        aNode[i].onclick = function(){
-            var request = new XMLHttpRequest();
-            var method = "GET";
-            var url = this.href;
-            request.open(method, url);
-            request.send(null);
-            request.onreadystatechange = function(){
-                if(request.readyState == 4 ){
-                    if(request.status == 200 || request.status == 304){
-                        /*HTML 格式*/
-                     /*   document.getElementById("details").innerHTML = request.responseText;
-                        console.log(request.responseText);*/
+    $(function(){
+        var url = 
 
-                        var response = request.responseXML;
-                        var name = response.getElementsByTagName("name")[0].firstChild.nodeValue;
-                        var website = response.getElementsByTagName("website")[0].firstChild.nodeValue;
-                        var email = response.getElementsByTagName("email")[0].firstChild.nodeValue;
-                     /*   alert(name);
-                        alert(website);
-                        alert(email);*/
-
-                        var aNode = document.createElement("a");
-                        aNode.appendChild(document.createTextNode(name));
-                        aNode.href = "mailto:"+email;
-
-                        var h2Node = document.createElement("h2");
-                        h2Node.appendChild(aNode);
-
-
-                        var aNode_2 = document.createElement("a");
-                        aNode_2.appendChild(document.createTextNode(website));
-                        aNode_2.href = website;
-
-                        var detailNode = document.getElementById("details");
-                        detailNode.innerHTML = "";
-                        detailNode.appendChild(h2Node);
-                        detailNode.appendChild(aNode_2);
-
-
-
-
-                    }
-                }
-            }
-            return false;
-        };
-    }
-
-}
+    });
 </script>
 </head>
 
@@ -63,9 +16,9 @@ window.onload = function(){
 <a href="test.txt">hello ajax!</a>
 <h1>people</h1>
 <ul>
-    <li><a href="xml_one.xml">Andy</a></li>
-    <li><a href="xml_two.xml">Lily</a></li>
-    <li><a href="xml_three.xml">Tom</a></li>
+    <li><a href="andy.js">Andy</a></li>
+    <li><a href="lily.js">Lily</a></li>
+    <li><a href="tom.js">Tom</a></li>
 </ul>
 
 <div id="details"></div>

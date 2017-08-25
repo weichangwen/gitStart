@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("a").click(function(){
+                var url = this.href;
+                var args = {"time":new Date()};
+
+                //使用load方法处理ajax
+                $("#content").load(url, args);
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <a href="test.txt">HelloAjax</a>
+    <div id="content"></div>
+
+</body>
+</html>
